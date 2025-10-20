@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inbox — Semantic Email Search & Automation (Waitlist)</title>
+  <meta name="description" content="Index your recent emails (up to 10k), query with plain English, and generate summaries, slide outlines, and automations. Join the waitlist for early access."/>
+  <style>
+    /* --- Single-file YC-style landing page (minimal, modern) --- */
+    :root{
+      --bg:#ffffff; --text:#0b0b0b; --muted:#666b75; --accent:#ffb400; --card:#fbfbfb;
+      --maxw:1100px; --gap:20px; --radius:10px; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size:16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;line-height:1.45}
+    .wrap{max-width:var(--maxw);margin:32px auto;padding:0 20px}
+    header{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid #eee;position:sticky;top:0;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.8));backdrop-filter:saturate(120%) blur(4px);z-index:50}
+    .brand{font-weight:700;font-size:20px;color:var(--text);text-decoration:none}
+    .brand .dot{color:var(--accent);margin-left:4px}
+    nav a{margin-left:16px;color:var(--muted);text-decoration:none;font-size:14px}
+    nav a:hover{color:var(--text)}
+    .btn{display:inline-block;padding:9px 14px;border-radius:9px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer}
+    .btn.ghost{background:transparent;border:1px solid #e6e6e6;color:var(--text)}
+    .btn.primary{background:var(--text);color:#fff}
+    .hero{display:grid;grid-template-columns:1fr 440px;gap:40px;align-items:center;padding:56px 0}
+    .eyebrow{color:var(--muted);font-weight:600;font-size:13px;margin-bottom:8px}
+    h1{font-size:34px;margin:0 0 12px;line-height:1.05}
+    .lead{color:var(--muted);margin:0 0 20px}
+    .cta-row{display:flex;gap:12px;align-items:center;margin-bottom:16px}
+    .hero-bullets{display:flex;gap:14px;color:var(--muted);list-style:none;padding:0;margin:0}
+    .hero-bullets li{font-size:14px}
+    /* mockup */
+    .mock{background:linear-gradient(180deg,#fff,#fcfcfc);border:1px solid #eee;padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(20,20,20,0.04)}
+    .mock .search{background:#fff;padding:10px;border-radius:9px;border:1px solid #f0f0f0;color:#888;margin-bottom:12px;font-size:14px}
+    .mock .result{background:#fff;border-radius:8px;padding:12px;border:1px solid #f1f1f1;margin-bottom:10px}
+    .result .top{display:flex;justify-content:space-between;align-items:center}
+    .pill{background:#f6f6f6;padding:6px 9px;border-radius:999px;font-size:12px;color:#666}
+    /* sections */
+    section{padding:36px 0;border-bottom:1px solid #f3f3f3}
+    .pipeline{display:flex;gap:14px;flex-wrap:wrap;margin-top:18px}
+    .step{flex:1;min-width:200px;background:var(--card);border:1px solid #eee;padding:18px;border-radius:10px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .card{background:var(--card);border:1px solid #eee;padding:16px;border-radius:10px}
+    .muted{color:var(--muted)}
+    /* waitlist form */
+    .waitlist-wrap{max-width:720px;margin-top:18px}
+    form{background:#fff;border:1px solid #eee;padding:18px;border-radius:12px;display:grid;gap:12px}
+    label{font-weight:700;font-size:13px}
+    input[type="email"], input[type="text"], select, textarea{padding:10px;border-radius:8px;border:1px solid #e6e6e6;font-size:15px;width:100%}
+    .form-row{display:flex;gap:12px;align-items:center}
+    .checkbox{display:flex;gap:8px;align-items:center}
+    .form-privacy{font-size:13px;color:var(--muted);margin-top:6px}
+    .form-msg{font-weight:700;font-size:14px;margin-top:6px}
+    /* faq */
+    details{background:#fff;border:1px solid #eee;padding:12px;border-radius:8px;margin-bottom:10px}
+    summary{font-weight:700;cursor:pointer}
+    pre.demo{background:#f7f7f7;border-radius:8px;padding:12px;border:1px solid #eee;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px}
+    footer{padding:30px 0;text-align:center;color:var(--muted);font-size:14px}
+    .flex{display:flex;gap:12px;align-items:center}
+    @media (max-width:920px){
+      .hero{grid-template-columns:1fr;gap:28px}
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:620px){
+      nav{display:none}
+      h1{font-size:24px}
+      .grid-3{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#"><span style="letter-spacing:0.2px">Inbox</span><span class="dot">.</span></a>
+      <nav>
+        <a href="#how">How</a>
+        <a href="#features">Features</a>
+        <a href="#demo">Demo</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#faq">FAQ</a>
+        <a href="#privacy">Privacy</a>
+        <a class="btn ghost" href="#waitlist">Join Waitlist</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <div class="eyebrow">Semantic Email Search & Automation</div>
+        <h1 id="hero-title">Your inbox — searchable, summarizable, actionable.</h1>
+        <p class="lead">Index your most recent 10,000 emails and ask plain-English questions: find requests, summarize threads, surface anomalies, and generate deliverables — all grounded in the original messages.</p>
+
+        <div class="cta-row">
+          <a class="btn primary" id="hero-cta" href="#waitlist">Join the Waitlist</a>
+          <a class="btn ghost" href="#demo">See a quick demo</a>
+        </div>
+
+        <ul class="hero-bullets" aria-hidden="false">
+          <li>Search like you talk — ask natural language queries</li>
+          <li>Cross-email synthesis & anomaly detection</li>
+          <li>Generate slide outlines, follow-ups, and reports</li>
+        </ul>
+      </div>
+
+      <aside class="mock" aria-hidden="true">
+        <div class="search">Search emails… <span style="color:#111;font-weight:700">what did Cynthia ask about extension?</span></div>
+
+        <div class="result">
+          <div class="top"><strong>Cynthia — extension request · Mar 4</strong><span class="pill">Extracted</span></div>
+          <p class="muted">"Can I have until next Friday for the microeconomics assignment? I had unexpected travel..."</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="btn ghost" onclick="track('suggested_reply_click')">Suggested reply</button>
+            <button class="btn ghost" onclick="track('create_deck_click')">Create slide deck</button>
+          </div>
+        </div>
+
+        <div class="result">
+          <div class="top"><strong>Chase Sapphire — transaction synthesis</strong><span class="pill">Synthesis</span></div>
+          <p class="muted">No abnormal activity in last 30 days; flagged 1 merchant you don't recognize.</p>
+        </div>
+      </aside>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" aria-labelledby="how-title">
+      <h2 id="how-title">How it works — at a glance</h2>
+      <p class="muted">Connect securely, index recent messages, ask natural-language questions, and generate grounded outputs with links back to source messages.</p>
+      <div class="pipeline" role="list">
+        <div class="step" role="listitem">
+          <h3>Connect</h3>
+          <p>Secure OAuth to Gmail, Outlook/Exchange — token scopes are limited to the messages you authorize.</p>
+        </div>
+        <div class="step" role="listitem">
+          <h3>Index</h3>
+          <p>We semantically vectorize messages so meaning — not keywords — becomes instantly searchable.</p>
+        </div>
+        <div class="step" role="listitem">
+          <h3>Retrieve</h3>
+          <p>Natural language queries retrieve relevant passages and cite the originating emails.</p>
+        </div>
+        <div class="step" role="listitem">
+          <h3>Create</h3>
+          <p>Generate summaries, slide outlines, follow-ups, and optional automations — all with source links.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:12px">Privacy-first defaults: we do not use your personal email to train global models without explicit opt-in. See Privacy & Security below for details.</p>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" aria-labelledby="features-title">
+      <h2 id="features-title">Features product teams and power users love</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Semantic Indexing (up to 10k)</h3>
+          <p class="muted">Recent conversations prioritized and stored as vectors to capture meaning across threads.</p>
+        </div>
+        <div class="card">
+          <h3>Natural Language Query</h3>
+          <p class="muted">Ask: “What did Cynthia ask about?” or “Show me Chase Sapphire activity” — get precise, sourced answers.</p>
+        </div>
+        <div class="card">
+          <h3>Cross-email Synthesis</h3>
+          <p class="muted">Pull timelines, commitments, and facts across emails into a single, verifiable view.</p>
+        </div>
+
+        <div class="card">
+          <h3>Auto-generation Toolkit</h3>
+          <p class="muted">Turn threads into slide outlines, meeting agendas, structured follow-ups, or reports in seconds.</p>
+        </div>
+        <div class="card">
+          <h3>Anomaly Detection</h3>
+          <p class="muted">Surface unusual charges, new payees, or outlier patterns in receipts and account emails.</p>
+        </div>
+        <div class="card">
+          <h3>Integrations (coming)</h3>
+          <p class="muted">Export to slides, calendars, and task managers; set opt-in follow-up automations.</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:14px">Everything we surface links back to source email for easy verification.</p>
+    </section>
+
+    <!-- DEMO -->
+    <section id="demo" aria-labelledby="demo-title">
+      <h2 id="demo-title">Demo (illustrative)</h2>
+      <p class="muted">Example: ask for a consulting-style slide deck outline based on your email thread about a new UC Berkeley changemaker class.</p>
+      <pre class="demo">Ask: "Based on my recent emails about the UC Berkeley changemaker class, create a 6-slide consulting deck outline."
+
+1. Executive summary — main opportunity & ask
+2. Stakeholders & timeline — who, when
+3. Evidence & commitments — pulled from emails
+4. Budget & resource asks — referenced quotes
+5. Risks & mitigations — concerns surfaced
+6. Next steps — owner + suggested messages</pre>
+      <p class="muted">Replace this with an animated GIF of search → retrieval → generated deck for maximum conversion.</p>
+    </section>
+
+    <!-- WAITLIST -->
+    <section id="waitlist" aria-labelledby="waitlist-title">
+      <h2 id="waitlist-title">Join the waitlist — be first to try it</h2>
+      <p class="muted">Invites go out in waves. Top adopters get pro credits, prioritized onboarding, and direct product input.</p>
+
+      <div class="waitlist-wrap">
+        <form id="waitlist-form" autocomplete="off" aria-describedby="waitlist-help">
+          <input type="hidden" name="source" value="landing" />
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required />
+
+          <label for="role">Role</label>
+          <select id="role" name="role" aria-label="Role (optional)">
+            <option value="">Select role (optional)</option>
+            <option>Product Manager</option>
+            <option>Consultant</option>
+            <option>Engineer</option>
+            <option>Lawyer</option>
+            <option>Finance</option>
+            <option>Student</option>
+            <option>Other</option>
+          </select>
+
+          <label for="usecase">Use case (optional)</label>
+          <input id="usecase" name="usecase" type="text" placeholder="e.g., summarize receipts, generate decks" maxlength="140" />
+
+          <div class="form-row">
+            <label class="checkbox"><input id="updates" name="updates" type="checkbox" checked /> I’d like product updates & feedback opportunities</label>
+          </div>
+
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn primary" type="submit">Get early access</button>
+            <a class="btn ghost" href="#" onclick="demoSignup();return false;">Demo submit</a>
+          </div>
+
+          <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
+
+          <p id="waitlist-help" class="form-privacy">By joining, you agree to receive product updates. We will never sell your email. See <a href="#privacy">Privacy</a> & <a href="#security">Security</a>.</p>
+        </form>
+
+        <div style="margin-top:14px" class="card">
+          <strong>Early adopters perks</strong>
+          <ul class="muted">
+            <li>Free 6 months of Pro for the first 100 signups</li>
+            <li>Priority onboarding & feedback sessions</li>
+            <li>Direct product roadmap influence</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title">FAQ</h2>
+
+      <details>
+        <summary>What email providers are supported?</summary>
+        <div class="muted">We’ll support Gmail (including Google Workspace), Outlook/Office365, and Exchange via OAuth. Full list coming at launch.</div>
+      </details>
+
+      <details>
+        <summary>How many emails do you index?</summary>
+        <div class="muted">Up to 10,000 of your most recent messages by default; you can scope and re-index as needed.</div>
+      </details>
+
+      <details>
+        <summary>Is my data used to train models?</summary>
+        <div class="muted">Default behavior is NOT to use personal mail to train models without explicit opt-in. See Privacy for details.</div>
+      </details>
+
+      <details>
+        <summary>Can it send emails or act on my behalf?</summary>
+        <div class="muted">Early versions focus on search, summarization, and generation. Any sending or automated actions will be opt-in and clearly labeled.</div>
+      </details>
+
+      <details>
+        <summary>How accurate are answers?</summary>
+        <div class="muted">We ground answers in retrieved source passages and always link back to the original emails so you can verify. For mission-critical items, double-check the original message.</div>
+      </details>
+    </section>
+
+    <!-- PRIVACY & SECURITY -->
+    <section id="privacy" aria-labelledby="privacy-title">
+      <h2 id="privacy-title">Privacy — short, clear summary</h2>
+      <p class="muted">We value your privacy. This is a concise default posture for the landing page. Engineering & legal should finalize the full policy before wide distribution.</p>
+
+      <div class="grid-3" style="margin-top:14px">
+        <div class="card">
+          <h3>Default data use</h3>
+          <p class="muted">By default, we index up to 10,000 of your most recent emails solely to provide product functionality. We do not use personal email content to train global models without explicit opt-in.</p>
+        </div>
+        <div class="card">
+          <h3>What we store</h3>
+          <p class="muted">Metadata (sender, subject, date), message content required for semantic indexing (vectors and references). You control scope and deletion.</p>
+        </div>
+        <div class="card">
+          <h3>Deletion & export</h3>
+          <p class="muted">Users can request data export or deletion. Dashboard will include one-click deletion and scope controls prior to GA.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" aria-labelledby="security-title">
+      <h2 id="security-title">Security — high level</h2>
+      <p class="muted">This page is a high-level overview. Engineering will publish a detailed security whitepaper covering encryption, keys, and audits before enterprise onboarding.</p>
+
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px">
+        <div class="card">
+          <h3>Authentication</h3>
+          <p class="muted">We use OAuth. We never ask for raw passwords. Scopes are minimized to least privilege required to index selected messages.</p>
+        </div>
+        <div class="card">
+          <h3>Encryption & audits</h3>
+          <p class="muted">TLS for transit; encrypted at rest. Planned SOC2 and penetration testing prior to general availability.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px">
+        <div style="display:flex;gap:12px;align-items:center">
+          <a class="brand" href="#" style="font-size:18px">Inbox<span class="dot">.</span></a>
+          <span class="muted">Built for people who need signal, not noise.</span>
+        </div>
+
+        <div style="display:flex;gap:12px;align-items:center">
+          <a href="#privacy" class="muted">Privacy</a>
+          <a href="#security" class="muted">Security</a>
+          <a href="mailto:hello@inbox.example" class="muted">Contact</a>
+        </div>
+      </div>
+
+      <div style="margin-top:16px;color:var(--muted)">© <span id="year"></span> Inbox. All rights reserved.</div>
+    </footer>
+  </div>
+
+  <!-- Inline JS: waitlist behavior + analytics stubs -->
+  <script>
+    (function(){
+      // Simple analytics stub: replace with Segment/Mixpanel/GA in prod
+      window.appAnalytics = {
+        track: function(event, props){
+          try{console.log('[analytics]', event, props || {}); }catch(e){}
+        }
+      };
+
+      function track(e, p){ window.appAnalytics.track(e, p); }
+
+      // set year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Hero CTA analytics
+      var heroCta = document.getElementById('hero-cta');
+      if(heroCta) heroCta.addEventListener('click', function(){ track('hero_cta_click'); });
+
+      // waitlist form
+      var form = document.getElementById('waitlist-form');
+      var msg = document.getElementById('form-msg');
+
+      function validEmail(e){
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+      }
+
+      form.addEventListener('submit', function(ev){
+        ev.preventDefault();
+        var email = (form.email.value || '').trim();
+        var role = (form.role.value || '').trim() || 'unspecified';
+        var usecase = (form.usecase.value || '').trim();
+        var updates = !!form.updates.checked;
+
+        if(!email || !validEmail(email)){
+          msg.style.color = 'crimson';
+          msg.textContent = 'Please enter a valid email address.';
+          track('waitlist_form_error', { reason: 'invalid_email' });
+          return;
+        }
+
+        // Track submission
+        track('waitlist_form_submit', { email: email, role: role, usecase: usecase, updates: updates, ts: new Date().toISOString() });
+
+        // Demo persistence: localStorage (replace with POST to backend)
+        try{
+          var key = 'inbox_waitlist_v1';
+          var existing = JSON.parse(localStorage.getItem(key) || '[]');
+          existing.push({ email: email, role: role, usecase: usecase, updates: updates, ts: new Date().toISOString() });
+          localStorage.setItem(key, JSON.stringify(existing));
+        }catch(e){ console.warn('storage failed', e); }
+
+        // UX feedback
+        form.reset();
+        msg.style.color = 'green';
+        msg.textContent = 'Thanks — you’re on the list. Check your email for confirmation.';
+        track('email_confirmed', { email: email });
+
+        // small simulated perk chance (demo only)
+        setTimeout(function(){
+          if(Math.random() < 0.12){
+            alert('Congrats — you made our early adopters cohort! We\'ll reach out with onboarding details.');
+            track('invite_sent', { email: email, tier: 'top_100' });
+          }
+        }, 600);
+      });
+
+      // small demo hooks
+      window.demoSignup = function(){
+        // fills demo email and submits
+        var demoEmail = 'you+'+Date.now()+'@example.com';
+        form.email.value = demoEmail;
+        form.role.value = 'Product Manager';
+        form.usecase.value = 'Generate deck outline';
+        form.dispatchEvent(new Event('submit', {cancelable:true}));
+      };
+
+      // extra analytic stubs for demo buttons
+      window.track = track;
+      document.querySelectorAll('a[href="#demo"]').forEach(function(a){ a.addEventListener('click', function(){ track('cta_demo_click'); }); });
+      document.querySelectorAll('.btn.ghost').forEach(function(b){ b.addEventListener('click', function(){ track('ghost_click', { text: b.textContent.trim() }); }); });
+
+      // page view
+      track('page_view', { page: 'landing' });
+    })();
+  </script>
+</body>
+</html>
