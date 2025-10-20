@@ -197,54 +197,22 @@
     </section>
 
     <!-- WAITLIST -->
-    <section id="waitlist" aria-labelledby="waitlist-title">
-      <h2 id="waitlist-title">Join the waitlist — be first to try it</h2>
-      <p class="muted">Invites go out in waves. Top adopters get pro credits, prioritized onboarding, and direct product input.</p>
-
-      <div class="waitlist-wrap">
-        <form id="waitlist-form" autocomplete="off" aria-describedby="waitlist-help">
-          <input type="hidden" name="source" value="landing" />
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="you@company.com" required />
-
-          <label for="role">Role</label>
-          <select id="role" name="role" aria-label="Role (optional)">
-            <option value="">Select role (optional)</option>
-            <option>Product Manager</option>
-            <option>Consultant</option>
-            <option>Engineer</option>
-            <option>Lawyer</option>
-            <option>Finance</option>
-            <option>Student</option>
-            <option>Other</option>
-          </select>
-
-          <label for="usecase">Use case (optional)</label>
-          <input id="usecase" name="usecase" type="text" placeholder="e.g., summarize receipts, generate decks" maxlength="140" />
-
-          <div class="form-row">
-            <label class="checkbox"><input id="updates" name="updates" type="checkbox" checked /> I’d like product updates & feedback opportunities</label>
-          </div>
-
-          <div style="display:flex;gap:10px;align-items:center">
-            <button class="btn primary" type="submit">Get early access</button>
-            <a class="btn ghost" href="#" onclick="demoSignup();return false;">Demo submit</a>
-          </div>
-
-          <div id="form-msg" class="form-msg" role="status" aria-live="polite"></div>
-
-          <p id="waitlist-help" class="form-privacy">By joining, you agree to receive product updates. We will never sell your email. See <a href="#privacy">Privacy</a> & <a href="#security">Security</a>.</p>
-        </form>
-
-        <div style="margin-top:14px" class="card">
-          <strong>Early adopters perks</strong>
-          <ul class="muted">
-            <li>Free 6 months of Pro for the first 100 signups</li>
-            <li>Priority onboarding & feedback sessions</li>
-            <li>Direct product roadmap influence</li>
-          </ul>
-        </div>
-      </div>
+    <section id="waitlist" style="text-align:center; padding: 60px 0; background-color:#f9fafb;">
+      <h2 style="font-size:2em; margin-bottom:20px;">Join the Waitlist</h2>
+      <p style="max-width:600px; margin:0 auto 40px; font-size:1.1em; color:#555;">
+        Be one of the first to experience semantic email intelligence. Sign up below and we’ll notify you when we open early access.
+      </p>
+    
+      <iframe 
+        src="https://docs.google.com/forms/d/e/1FAIpQLSezLWwqjExLysMMYbaNs89XbXdW8BAkvK-HNAsSTy3OCU2btA/viewform?embedded=true" 
+        width="100%" 
+        height="1200" 
+        frameborder="0" 
+        marginheight="0" 
+        marginwidth="0"
+        style="max-width:640px; border:none; background:white; box-shadow:0 4px 20px rgba(0,0,0,0.05); border-radius:8px;">
+          Loading…
+      </iframe>
     </section>
 
     <!-- FAQ -->
